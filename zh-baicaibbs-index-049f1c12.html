@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资料整理索引 | 白菜论坛</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f4f6;
+      color: #1e2a33;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      flex: 1;
+    }
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+      margin-bottom: 2.5rem;
+      border: 1px solid #e6eaee;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      color: #1f2a36;
+      margin-bottom: 0.75rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: #3d4b58;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .hero .highlight {
+      display: inline-block;
+      background: #eef2f6;
+      padding: 0.1rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 450;
+      color: #1d3b5a;
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+    /* 卡片通用 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.2rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      border: 1px solid #e0e6ec;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
+      transition: box-shadow 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      font-weight: 520;
+      color: #1f2c38;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .card h2 span {
+      display: inline-block;
+      width: 5px;
+      height: 20px;
+      background: #6b8da6;
+      border-radius: 4px;
+      margin-right: 0.25rem;
+    }
+    .card p, .card li {
+      font-size: 0.98rem;
+      color: #2d3d4b;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card li {
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+    }
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #6b8da6;
+      font-weight: 600;
+    }
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.8rem;
+      margin: 0.6rem 0 0.2rem;
+    }
+    .badge {
+      background: #eef2f6;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #1d3b58;
+      border: 1px solid #d9e0e7;
+    }
+    /* 说明区特殊 */
+    .note-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      border: 1px solid #e0e6ec;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      margin-bottom: 1.5rem;
+    }
+    .note-card h3 {
+      font-size: 1.1rem;
+      font-weight: 520;
+      color: #1f2c38;
+      margin-bottom: 0.5rem;
+    }
+    .note-card p {
+      font-size: 0.98rem;
+      color: #2d3d4b;
+    }
+    .faq-item {
+      margin: 1rem 0 0.6rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 550;
+      color: #1f2c38;
+      margin-bottom: 0.15rem;
+    }
+    .faq-item p {
+      margin-left: 0.2rem;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #dce3e9;
+      margin: 1.2rem 0;
+    }
+    .footer-links {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #dce3e9;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.9rem;
+      color: #4d5b67;
+    }
+    .footer-links a {
+      color: #1d3b58;
+      text-decoration: none;
+      border-bottom: 1px dotted #b3c2cf;
+      padding-bottom: 1px;
+    }
+    .footer-links a:hover {
+      border-bottom: 1px solid #1d3b58;
+    }
+    .footer-links .slogan {
+      font-style: normal;
+      color: #5a6b7a;
+    }
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.2rem 1rem;
+      }
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .card, .note-card {
+        padding: 1.4rem 1.2rem;
+      }
+      .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>资料整理 · 信息索引</h1>
+    <p>围绕公开讨论与日常内容整理，搭建一个便于查阅、标记与回溯的索引页。<br>以下内容均基于社区中自发沉淀的讨论材料。</p>
+    <div class="highlight">索引方向：讨论归档 · 话题分类 · 常见条目</div>
+  </div>
+
+  <!-- 优势区：卡片形式 -->
+  <div class="card-grid">
+    <div class="card">
+      <h2><span></span> 整理方式</h2>
+      <p>按话题领域与时间线对讨论内容做粗略归类，方便后续检索。不涉及主观评价，仅提供结构化的条目链接。</p>
+      <div class="badge-list">
+        <span class="badge">话题标签</span>
+        <span class="badge">时间分段</span>
+        <span class="badge">引用片段</span>
+        <span class="badge">原文地址</span>
+      </div>
+    </div>
+    <div class="card">
+      <h2><span></span> 索引特点</h2>
+      <ul>
+        <li>以公开可见的发言为材料，保留原始语境。</li>
+        <li>每条索引均附带出处标识，方便回溯原文。</li>
+        <li>索引目录定期更新，合并重复或过时条目。</li>
+        <li>不设权重排序，仅按整理时间陈列。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 说明区 -->
+  <div class="note-card">
+    <h3>关于「资料整理」的几点说明</h3>
+    <p>本页所引用的内容均来自公开讨论区，整理者仅做格式统一与粗略分类。原始讨论中可能存在不同视角，建议结合原文阅读以获取完整上下文。索引中不包含个人分析或延伸结论，只保留原始表述与链接。<br><br>
+    如果希望查阅或补充某类话题，可以前往 <a href="https://zh-baicaibbs.com">白菜论坛</a> 浏览对应版块。论坛中的帖子按最后回复时间排列，亦可使用站内搜索按关键词定位。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="note-card">
+    <h3>常见问题摘要</h3>
+    <div class="faq-item">
+      <strong>索引的范围是什么？</strong>
+      <p>主要收录近一年内发帖数较多、回复质量较稳定的话题。不包含广告、重复灌水或已被删除的帖子。</p>
+    </div>
+    <div class="faq-item">
+      <strong>如何找到某个具体讨论？</strong>
+      <p>可以在 <a href="https://zh-baicaibbs.com">白菜论坛</a> 的搜索框中输入关键词，或按版块分类逐层浏览。索引页仅提供部分代表性条目。</p>
+    </div>
+    <div class="faq-item">
+      <strong>索引多久更新一次？</strong>
+      <p>每两周左右对新增内容做一次归并，同时清理失效链接。更新记录会附在页面末尾。</p>
+    </div>
+    <hr>
+    <p style="font-size:0.9rem; color:#4a5b69;">以上内容仅供参考，具体信息以原始帖子为准。如有遗漏或链接失效，欢迎在站内反馈。</p>
+  </div>
+
+  <!-- 底部链接区 -->
+  <div class="footer-links">
+    <div>
+      <span class="slogan">← 资料索引 · 持续整理中</span>
+    </div>
+    <div>
+      <a href="https://zh-baicaibbs.com">白菜论坛</a> 
+      <span style="margin:0 0.3rem;color:#b0becb;">·</span> 
+      <a href="#" style="border-bottom:none; color:#6b7f8e;">更新记录</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
